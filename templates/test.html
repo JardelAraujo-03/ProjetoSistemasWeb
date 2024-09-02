@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include "header.html" %}
+
+<div class="w3-main" style="margin-left:0px; padding-top: 100px; display: flex; justify-content: center;">
+
+    <div style="width: 80%;">
+
+        <!-- Search Bar -->
+        <div class="w3-container">
+            <input type="text" id="searchInput" class="w3-input w3-border w3-round" placeholder="Search for options..." onkeyup="filterList()" style="font-size: 14px; padding: 8px;">
+        </div>
+
+        <!-- Options List -->
+        <div class="w3-container w3-margin-top" id="optionsContainer">
+            <div class="w3-card-4 w3-margin w3-padding w3-light-grey option-item" style="padding: 16px;">
+                <h3 style="font-size: 18px; margin-bottom: 10px;">Option 1</h3>
+                <button class="w3-button w3-theme" onclick="location.href='#'" style="font-size: 14px;">Go</button>
+            </div>
+            <div class="w3-card-4 w3-margin w3-padding w3-light-grey option-item" style="padding: 16px;">
+                <h3 style="font-size: 18px; margin-bottom: 10px;">Option 2</h3>
+                <button class="w3-button w3-theme" onclick="location.href='#'" style="font-size: 14px;">Go</button>
+            </div>
+            <div class="w3-card-4 w3-margin w3-padding w3-light-grey option-item" style="padding: 16px;">
+                <h3 style="font-size: 18px; margin-bottom: 10px;">Option 3</h3>
+                <button class="w3-button w3-theme" onclick="location.href='#'" style="font-size: 14px;">Go</button>
+            </div>
+            <div class="w3-card-4 w3-margin w3-padding w3-light-grey option-item" style="padding: 16px;">
+                <h3 style="font-size: 18px; margin-bottom: 10px;">Option 4</h3>
+                <button class="w3-button w3-theme" onclick="location.href='#'" style="font-size: 14px;">Go</button>
+            </div>
+            <div class="w3-card-4 w3-margin w3-padding w3-light-grey option-item" style="padding: 16px;">
+                <h3 style="font-size: 18px; margin-bottom: 10px;">Option 5</h3>
+                <button class="w3-button w3-theme" onclick="location.href='#'" style="font-size: 14px;">Go</button>
+            </div>
+            <div class="w3-card-4 w3-margin w3-padding w3-light-grey option-item" style="padding: 16px;">
+                <h3 style="font-size: 18px; margin-bottom: 10px;">Option 6</h3>
+                <button class="w3-button w3-theme" onclick="location.href='#'" style="font-size: 14px;">Go</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% include "footer.html" %}
+
+<script>
+    function filterList() {
+        const input = document.getElementById('searchInput').value.toLowerCase();
+        const optionItems = document.getElementsByClassName('option-item');
+        
+        for (let i = 0; i < optionItems.length; i++) {
+            const item = optionItems[i];
+            const text = item.getElementsByTagName('h3')[0].innerText.toLowerCase();
+            
+            if (text.includes(input)) {
+                item.style.display = "block"; // Show the item
+            } else {
+                item.style.display = "none"; // Hide the item
+            }
+        }
+    }
+</script>
+
+</html>
